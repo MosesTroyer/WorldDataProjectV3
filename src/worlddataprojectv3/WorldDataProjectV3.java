@@ -15,6 +15,7 @@ public class WorldDataProjectV3 {
      */
     public static void main(String[] args) {
         
+        System.out.print("testing");
         
         //Testing # 3
     }
