@@ -8,6 +8,14 @@
 
 package SetupProgram;
 
+import SharedClassLibrary.MainData;
+import java.io.*;
+
 public class SetupProgram {
     
-}
+    public static void main(String[] args) throws IOException {
+        MainData md = new MainData();
+        
+        md.closeFile();
+    } //end main
+} //end SetupProgram class
