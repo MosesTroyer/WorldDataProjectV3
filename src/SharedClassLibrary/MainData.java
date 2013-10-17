@@ -55,7 +55,10 @@ public class MainData {
     
     //closes the file. Be sure to call when you finish using maindata
     public void closeFile() throws IOException {
+        System.out.println("closed MainData file");
+        log.writeln("closed MainData file");
         mdInfile.close();
+        log.close();
     } //end closeFile
     
     //************************PRIVATE METHODS************************//
