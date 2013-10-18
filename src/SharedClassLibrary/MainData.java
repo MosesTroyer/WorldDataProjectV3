@@ -18,12 +18,10 @@ public class MainData {
     private int[] reqLengths = {3, 21, 34, 44, 48}; // each added up
     
     public MainData() throws IOException{
-        log.writeln("MainData object created");
-        System.out.println("MainData object created");
+        //log.writeln("MainData object created");
         
         mdInfile = new RandomAccessFile("MainDataA3.txt", "r");
-        log.writeln("opened MainData file");
-        System.out.println("opened MainData file");
+        //log.writeln("opened MainData file");
     } //end MainData Constructor
     
      //************************PUBLIC METHODS************************//
@@ -38,16 +36,12 @@ public class MainData {
         mdInfile.seek(seek(r));
         line = mdInfile.readLine();
         
-        System.out.println(line);
-        
         //splits the line up into the array
         for(i=0;i<mdLength.length;i++){
             if(i == 0)
                 data[i] = line.substring(0, reqLengths[i]);
             else 
                 data[i] = line.substring(reqLengths[i-1], reqLengths[i]);
-            
-            System.out.println(data[i]);
         }
   
         return data;
@@ -55,8 +49,7 @@ public class MainData {
     
     //closes the file. Be sure to call when you finish using maindata
     public void closeFile() throws IOException {
-        System.out.println("closed MainData file");
-        log.writeln("closed MainData file");
+        //log.writeln("closed MainData file");
         mdInfile.close();
         log.close();
     } //end closeFile

@@ -6,9 +6,13 @@
  * For Dr. Kaminski's 3310 Data and File Structures, WMU
  *******************************************/
 
+//ASK DR KAMISKI IF SHE WANTS OBJECT CREATED MESSAGES
+
 package AutoTesterUtility;
 
 import SetupProgram.SetupProgram;
+import PrettyPrintUtility.PrettyPrintUtility;
+import UserApp.UserApp;
 import java.io.*;
 
 public class AutoTesterUtility {
@@ -17,8 +21,13 @@ public class AutoTesterUtility {
         System.out.println("Starting AutoTesterUtility");
         
         DeleteFile("Log.txt");
+        DeleteFile("IndexBackup.bin");
         
         SetupProgram.main(new String[] {"Running from AutoTesterUtility"});
+        PrettyPrintUtility.main(new String[] {"Running from AutoTesterUtility"});
+        UserApp.main(new String[] {"Running from AutoTesterUtility"});
+        PrettyPrintUtility.main(new String[] {"Running from AutoTesterUtility"});
+                
     
     } //end Main
     

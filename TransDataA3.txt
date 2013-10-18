@@ -1,0 +1,8 @@
+LN
+QN France
+QN Botswana
+QN United
+QN United Kingdom
+QN United States
+QN Western
+QN bOtSwana

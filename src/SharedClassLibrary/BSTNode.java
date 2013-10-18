@@ -18,6 +18,14 @@ public class BSTNode {
         drp = d;
     } //end constructor
     
+    //overloaded constructor that adds l and r. Use when constructing from file
+    public BSTNode(Short l, String n, short d, Short r){
+        leftChPtr = l;
+        name = n;
+        drp = d;
+        rightChPtr = r;
+    } //end contructor
+    
     //************************PUBLIC METHODS************************//
     
     public void setLeft(short l){

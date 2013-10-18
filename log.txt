@@ -1,3 +1,126 @@
 Starting SetupProgram
 RawData object created
 opened RawData file
+NameIndex object created
+closed RawData file
+Setup completed: 26 records processed
+opened IndexBackup file
+closed IndexBackup file
+Starting PrettyPrintUtility
+opened IndexBackup file
+
+RootPtr is 0, N is 26
+[SUB]  LCH  NAME--------------  DRP  RCH
+[000]  003  Japan               035  001
+[001]  002  Norway              028  004
+[002]  -01  Kenya               005  007
+[003]  008  Egypt               014  010
+[004]  020  Pakistan            010  005
+[005]  018  United Kingdom      026  006
+[006]  011  Zambia              001  -01 
+[007]  025  Mozambique          002  -01 
+[008]  009  Canada              034  014
+[009]  016  Botswana            003  -01 
+[010]  013  Haiti               006  017
+[011]  -01  United States       025  012
+[012]  022  Western Sahara      007  015
+[013]  024  Gabon               008  -01 
+[014]  -01  Dominican Republic  023  -01 
+[015]  -01  Yugoslavia          020  -01 
+[016]  -01  Andorra             037  -01 
+[017]  -01  India               012  -01 
+[018]  021  Russian Federation  016  019
+[019]  -01  Syria               017  023
+[020]  -01  Oman                018  -01 
+[021]  -01  Qatar               019  -01 
+[022]  -01  Venezuela           021  -01 
+[023]  -01  Taiwan              024  -01 
+[024]  -01  France              029  -01 
+[025]  -01  Liechtenstein       031  -01 
+closed IndexBackup file
+Starting UserApp
+opened TransDataA3 file
+NameIndex object created
+opened IndexBackup file
+closed IndexBackup file
+LN
+CODE NAME--------------  CONTINENT----  ---POPULATION  L.EXP
+AND  Andorra             Europe                78,000  83.5
+BWA  Botswana            Africa             1,622,000  39.3
+CAN  Canada              North America     31,147,000  79.4
+DOM  Dominican Republic  North America      8,495,000  73.2
+EGY  Egypt               Africa            68,470,000  63.3
+FRA  France              Europe            59,225,700  78.8
+GAB  Gabon               Africa             1,226,000  50.1
+HTI  Haiti               North America      8,222,000  49.2
+IND  India               Asia           1,013,662,000  62.5
+JPN  Japan               Asia             126,714,000  80.7
+KEN  Kenya               Africa            30,080,000  48.0
+LIE  Liechtenstein       Europe                32,300  78.8
+MOZ  Mozambique          Africa            19,680,000  37.5
+NOR  Norway              Europe             4,478,500  78.7
+OMN  Oman                Asia               2,542,000  71.8
+PAK  Pakistan            Asia             156,483,000  61.1
+QAT  Qatar               Asia                 599,000  72.4
+RUS  Russian Federation  Europe           146,934,000  67.2
+SYR  Syria               Asia              16,125,000  68.5
+TWN  Taiwan              Asia              22,256,000  76.4
+GBR  United Kingdom      Europe            59,623,400  77.7
+USA  United States       North America    278,357,000  77.1
+VEN  Venezuela           South America     24,170,000  73.1
+ESH  Western Sahara      Africa               293,000  49.8
+YUG  Yugoslavia          Europe            10,640,000  72.4
+ZMB  Zambia              Africa             9,169,000  37.2
+QN France
+FRA France             Europe        0059225700 78.8
+  [5 BST nodes visited]
+QN Botswana
+BWA Botswana           Africa        0001622000 39.3
+  [4 BST nodes visited]
+QN United
+**ERROR: no country named United
+  [7 BST nodes visited]
+QN United Kingdom
+GBR United Kingdom     Europe        0059623400 77.7
+  [4 BST nodes visited]
+QN United States
+USA United States      North America 0278357000 77.1
+  [6 BST nodes visited]
+QN Western
+**ERROR: no country named Western
+  [8 BST nodes visited]
+QN bOtSwana
+BWA Botswana           Africa        0001622000 39.3
+  [4 BST nodes visited]
+Starting PrettyPrintUtility
+opened IndexBackup file
+
+RootPtr is 0, N is 26
+[SUB]  LCH  NAME--------------  DRP  RCH
+[000]  003  Japan               035  001
+[001]  002  Norway              028  004
+[002]  -01  Kenya               005  007
+[003]  008  Egypt               014  010
+[004]  020  Pakistan            010  005
+[005]  018  United Kingdom      026  006
+[006]  011  Zambia              001  -01 
+[007]  025  Mozambique          002  -01 
+[008]  009  Canada              034  014
+[009]  016  Botswana            003  -01 
+[010]  013  Haiti               006  017
+[011]  -01  United States       025  012
+[012]  022  Western Sahara      007  015
+[013]  024  Gabon               008  -01 
+[014]  -01  Dominican Republic  023  -01 
+[015]  -01  Yugoslavia          020  -01 
+[016]  -01  Andorra             037  -01 
+[017]  -01  India               012  -01 
+[018]  021  Russian Federation  016  019
+[019]  -01  Syria               017  023
+[020]  -01  Oman                018  -01 
+[021]  -01  Qatar               019  -01 
+[022]  -01  Venezuela           021  -01 
+[023]  -01  Taiwan              024  -01 
+[024]  -01  France              029  -01 
+[025]  -01  Liechtenstein       031  -01 
+closed IndexBackup file

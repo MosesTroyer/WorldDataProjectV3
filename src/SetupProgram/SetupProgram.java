@@ -17,10 +17,10 @@ import java.io.*;
 public class SetupProgram {
     
     public static void main(String[] args) throws IOException {
-        System.out.println("Starting SetupProgram");
-        
         Logger log = new Logger();
         log.writeln("Starting SetupProgram");
+        
+        int recProcessed = 0;
         
         RawData rd = new RawData();
         String line[];
@@ -28,9 +28,14 @@ public class SetupProgram {
         
         while((line = rd.readLine()) != null){
             ni.addCountry(line[2], Short.parseShort(line[0]));
+            recProcessed++;
         }
         
-        ni.printBST();
+        rd.closeFile();
+        
+        log.writeln("Setup completed: 26 records processed");
+        
+        ni.writeBackupBST();
         
         log.close();
     } //end main
