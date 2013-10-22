@@ -8,54 +8,54 @@
 
 package UserApp;
 
-import SharedClassLibrary.Logger;
+import SharedClassLibrary.UserInterface;
 import SharedClassLibrary.MainData;
 import SharedClassLibrary.NameIndex;
 import java.io.*;
-import java.util.Scanner;
 
 public class UserApp {
  
     public static void main(String[] args) throws IOException {
-        Logger log = new Logger();
-        log.writeln("Starting UserApp");
+        UserInterface ui = new UserInterface();
+        ui.openTD();
+        ui.writeln("Starting UserApp");
         String command[];
         int i;
+        MainData md = new MainData();
         
-        FileInputStream tF = new FileInputStream("TransDataA3.txt");
-        Scanner transFile = new Scanner(tF);
-        log.writeln("opened TransDataA3 file");
+        ui.writeln("opened TransDataA3 file");
 
         NameIndex ni = new NameIndex();
         
         ni.recoverFromBackup();
         
-        while(transFile.hasNextLine()){
-            command = transFile.nextLine().split(" ");
+        while(ui.hasNextLine()){
+            command = ui.nextLine().split(" ");
             
             for(i = 2;i<command.length;i++){
                 command[1] += " " + command[i];
             }
             
-            log.write(command[0]);
+            ui.write(command[0]);
             
             switch (command[0]) { 
                 case "LN":
-                    log.writeln();
-                    ni.listAllByName();
+                    ui.writeln();
+                    ni.listAllByName(md);
                     break;
                 case "QN":
-                    log.writeln(" " + command[1]);
-                    ni.queryByName(command[1]);
+                    ui.writeln(" " + command[1]);
+                    ni.queryByName(command[1], md);
                     break;                  
                 default:
-                    log.writeln("**Invalid Command");
+                    ui.writeln("**Invalid Command");
                     break;
             }
             
         }
         
-        log.close();
+        md.closeFile();
+        ui.finishUp('t');
     } //end main
     
 } // end UserApp

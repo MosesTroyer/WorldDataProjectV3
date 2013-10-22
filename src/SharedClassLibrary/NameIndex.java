@@ -6,6 +6,11 @@
  * For Dr. Kaminski's 3310 Data and File Structures, WMU
  *******************************************/
 
+//ask about special cases at the bottom
+//ask about logger being userinterface?
+//see if formatting is acceptable  
+//status message on creaitng from backup
+
 package SharedClassLibrary;
 
 import java.io.*;
@@ -16,29 +21,29 @@ public class NameIndex {
     private BSTNode[] BST = new BSTNode[50];
     private short rootPtr = -1, n;
     private MainData md;
-    private Logger log;
+    private UserInterface log;
     private int nameLength = 18;
     private int nodesVisited;
     
     public NameIndex() throws IOException {
-        Logger log = new Logger();
+        log = new UserInterface();
         log.writeln("NameIndex object created");
         
         rootPtr = -1;
         n = 0;
         
-        log.close();
+        log.finishUp('l');
     } //end constructor
     
     //overloaded constructor that specifies N and root
     public NameIndex(short rootPointer, short countries) throws IOException {
-        Logger log = new Logger();
+        log = new UserInterface();
         log.writeln("NameIndex object created");
         
         rootPtr = rootPointer;
         n = countries;
         
-        log.close();
+        log.finishUp('l');
     } //end constructor
     
     //************************PUBLIC METHODS************************//
@@ -59,7 +64,7 @@ public class NameIndex {
     //writes the BST to a .bin file
     public void writeBackupBST() throws IOException {
         int i, c;
-        Logger log = new Logger();
+        log = new UserInterface();
         String m;
         
         RandomAccessFile backup = new RandomAccessFile("IndexBackup.bin", "rw");
@@ -86,14 +91,14 @@ public class NameIndex {
         log.writeln("closed IndexBackup file");
        
         backup.close(); 
-        log.close();
+        log.finishUp('l');
     } //end writeBackup
     
     public void recoverFromBackup() throws IOException {
         int i, c, nameLength = 18;
         short l, r, drp;
         String name;
-        Logger log = new Logger();
+        log = new UserInterface();
         
         RandomAccessFile backup = new RandomAccessFile("IndexBackup.bin", "r");
         log.writeln("opened IndexBackup file");
@@ -114,23 +119,22 @@ public class NameIndex {
         log.writeln("closed IndexBackup file");
         
         backup.close();
-        log.close();
+        log.finishUp('l');
     } //end recoverFromBackup
     
     //reads and prints all of the nodes in Alphabetical order
-    public void listAllByName() throws IOException {
-        log = new Logger();
-        md = new MainData();
+    public void listAllByName(MainData m) throws IOException {
+        log = new UserInterface();
+        md = m;
         
         log.writeln("CODE NAME--------------  CONTINENT----  ---POPULATION  L.EXP");
         inOrderTraversal(rootPtr);
         
-        md.closeFile();
-        log.close();
+        log.finishUp('l');
     } //end listAllByName
     
-    public void queryByName(String target) throws IOException {
-        md = new MainData();
+    public void queryByName(String target, MainData m) throws IOException {
+        md = m;
         int i;
         String[] fullTarget;
         nodesVisited = 0;
@@ -142,17 +146,16 @@ public class NameIndex {
         //capitalizes first letter of each word
         for(i=0;i<fullTarget.length;i++){
             fullTarget[i] = fullTarget[i].toLowerCase();
-            fullTarget[i] = Character.toUpperCase(fullTarget[i].charAt(0)) + fullTarget[i].substring(1);
-            if(i == fullTarget.length-1) target += fullTarget[i];
-            else target += fullTarget[i] + " ";
+            if(!fullTarget[i].equals("")) {fullTarget[i] = Character.toUpperCase(fullTarget[i].charAt(0)) + fullTarget[i].substring(1);
+                if(i == fullTarget.length-1) target += fullTarget[i];
+                else target += fullTarget[i] + " ";
+            }
         }
         
         
         if(!BSTSearch(target, rootPtr)) log.writeln("**ERROR: no country named " + target);
         
         log.writeln("  [" + nodesVisited + " BST nodes visited]");
-        
-        md.closeFile();
     } //end queryByName
     
     //test method to print out the BST
@@ -167,16 +170,6 @@ public class NameIndex {
     } //end printBST
     
     //************************PRIVATE METHODS************************//
-    
-    //PASS ROOT PTR OF TREE, DOESNT HAVE TO BE JUST THE TOP!!
-    //So the passed root pointer could be a subtree
-    //IOT = In Order Traversal
-    //big call
-    //IOT(root of A bst)
-    //if root ptr == -1 do nothing
-    //else
-    
-    //LN LISTS IN ALPHABETICAL!!
     
     //this finds where the new country should go in the tree and updates
     //the fields before it accordingly. 
@@ -230,13 +223,13 @@ public class NameIndex {
 
         if(target.equalsIgnoreCase(BST[rootPointer].getName().trim())){
             line = md.getThisData(BST[rootPointer].getDRP());
-            log. writeln(line[0] + " " +
+            log.writeln(line[0] + " " +
                     line[1] + " " +
                     line[2] + " " +
                     line[3] + " " +
                     line[4]);
             return true;
-        };
+        }
         if(target.compareTo(BST[rootPointer].getName()) > 0){ //to the RIGHT
             if(BST[rootPointer].getRight() != -1) 
                 return BSTSearch(target, BST[rootPointer].getRight());

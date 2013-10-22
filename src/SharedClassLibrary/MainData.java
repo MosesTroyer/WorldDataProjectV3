@@ -12,16 +12,16 @@ package SharedClassLibrary;
 import java.io.*;
 
 public class MainData {
-    private Logger log = new Logger();
+    private UserInterface log = new UserInterface();
     private RandomAccessFile mdInfile; 
     private int[] mdLength = {3, 18, 13, 10, 4}; //code, name, continent, population, lifeExpectancy
     private int[] reqLengths = {3, 21, 34, 44, 48}; // each added up
     
     public MainData() throws IOException{
-        //log.writeln("MainData object created");
+        log.writeln("MainData object created");
         
         mdInfile = new RandomAccessFile("MainDataA3.txt", "r");
-        //log.writeln("opened MainData file");
+        log.writeln("opened MainData file");
     } //end MainData Constructor
     
      //************************PUBLIC METHODS************************//
@@ -49,9 +49,9 @@ public class MainData {
     
     //closes the file. Be sure to call when you finish using maindata
     public void closeFile() throws IOException {
-        //log.writeln("closed MainData file");
+        log.writeln("closed MainData file");
         mdInfile.close();
-        log.close();
+        log.finishUp('l');
     } //end closeFile
     
     //************************PRIVATE METHODS************************//

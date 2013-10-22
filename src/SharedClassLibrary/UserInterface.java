@@ -10,17 +10,27 @@
 package SharedClassLibrary;
 
 import java.io.*;
+import java.util.Scanner;
 
-public class Logger {
+public class UserInterface {
 
     private static BufferedWriter log;
+    private Scanner transFile;
     
     //constructor, opens file
-    public static void Logger() throws IOException {
+    //pass 'l' for just lot, or 't' for trans as well
+    public static void UserInterface() throws IOException {
         log = new BufferedWriter(new FileWriter("log.txt", true));
-    } //end logger
+    } //end BufferedWriter
     
     //************************PUBLIC METHODS************************//
+    
+    //open up td with this
+    public void openTD() throws IOException {
+        FileInputStream tF = new FileInputStream("TransDataA3.txt");
+        transFile = new Scanner(tF);
+        writeln("opened TransData file");
+    } //openTf
     
     //writes the the log file
     public void write(String s) throws IOException {
@@ -67,7 +77,7 @@ public class Logger {
         try{
         log.write("\n");
         System.out.print("\n");
-        } catch (NullPointerException|IOException e){ 
+        } catch (NullPointerException|IOException e){            
             //The catch reopens the file if it was closed somewhere else
             log = new BufferedWriter(new FileWriter("log.txt", true));
             log.write("\n");
@@ -89,10 +99,22 @@ public class Logger {
         } //end catch
     } //end writeln
     
+    public boolean hasNextLine(){
+        return transFile.hasNextLine();
+    } //end hasNextLine
+    
+    public String nextLine(){
+        return transFile.nextLine();
+    } //end nextLine
+    
     //be sure to call this when done using the logger
-    public void close() throws IOException {
+    //pass 'l' for just lot, or 't' for trans as well
+    public void finishUp(char c) throws IOException {
         try{
-            log.close();
+            if(c == 'l')log.close();
+            else if(c == 't'){
+                log.close();
+            }
         } catch (NullPointerException e) {}
     } //end close
     

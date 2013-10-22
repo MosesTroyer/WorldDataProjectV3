@@ -8,13 +8,13 @@
 
 package PrettyPrintUtility;
 
-import SharedClassLibrary.Logger;
+import SharedClassLibrary.UserInterface;
 import java.io.*;
 
 public class PrettyPrintUtility {
     
     public static void main(String[] args) throws IOException {
-        Logger log = new Logger();
+        UserInterface log = new UserInterface();
         log.writeln("Starting PrettyPrintUtility");
         
         RandomAccessFile backup = new RandomAccessFile("IndexBackup.bin", "r");
@@ -70,7 +70,7 @@ public class PrettyPrintUtility {
         log.writeln("closed IndexBackup file");
         
         backup.close();
-        log.close();
+        log.finishUp('l');
     } //end main
     
 } //end PrettyPrintUtility class

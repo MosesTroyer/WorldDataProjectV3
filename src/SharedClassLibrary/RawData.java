@@ -12,7 +12,7 @@ import java.io.*;
 
 public class RawData {
     
-    private Logger log = new Logger();
+    private UserInterface log = new UserInterface();
     private BufferedReader input = null;
 
     public RawData() throws IOException {
@@ -40,7 +40,7 @@ public class RawData {
         log.writeln("closed RawData file");
         
         input.close();
-        log.close();
+        log.finishUp('l');
     } //end closeFile
     
 }

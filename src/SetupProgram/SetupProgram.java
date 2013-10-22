@@ -11,13 +11,13 @@ package SetupProgram;
 import SharedClassLibrary.MainData;
 import SharedClassLibrary.RawData;
 import SharedClassLibrary.NameIndex;
-import SharedClassLibrary.Logger;
+import SharedClassLibrary.UserInterface;
 import java.io.*;
 
 public class SetupProgram {
     
     public static void main(String[] args) throws IOException {
-        Logger log = new Logger();
+        UserInterface log = new UserInterface();
         log.writeln("Starting SetupProgram");
         
         int recProcessed = 0;
@@ -37,6 +37,6 @@ public class SetupProgram {
         
         ni.writeBackupBST();
         
-        log.close();
+        log.finishUp('l');
     } //end main
 } //end SetupProgram class
